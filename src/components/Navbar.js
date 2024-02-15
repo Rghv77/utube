@@ -2,12 +2,18 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { logo, user_logo } from "../utils/constants";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { MdOutlineVideoCall } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { toggleopen } from "../utils/appSlice";
 
 const Navbar=()=>{
+    const dispatch=useDispatch();
+    const toggleMenu=()=>{
+        dispatch(toggleopen());
+    }
     return <>
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center bg-slate-300">
         <div className="flex items-center justify-between">
-        <GiHamburgerMenu className="mx-4" />
+        <button  className="mx-4" onClick={toggleMenu}> <GiHamburgerMenu /> </button>
         <img src={logo} alt="company_logo" className="w-24 h-24"/>
         </div>
         <div className="">
